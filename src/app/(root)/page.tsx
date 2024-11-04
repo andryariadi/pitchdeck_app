@@ -34,7 +34,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
         </div>
 
         {/* Card */}
-        <div className="b-amber-500 grid grid-cols-2 md:grid-cols-3 gap-14">{posts?.length > 0 ? posts.map((post: StartupTypeCard) => <StartupCard post={post} key={post._id} />) : <p>No startups found</p>}</div>
+        <div className="b-amber-500 grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-14">{posts?.length > 0 ? posts.map((post: StartupTypeCard) => <StartupCard post={post} key={post._id} />) : <p>No startups found</p>}</div>
       </section>
 
       {/* if in file client.ts useCdn is true its mean data will cached in CDN */}
