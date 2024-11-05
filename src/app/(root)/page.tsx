@@ -14,14 +14,14 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
     params: { search: query || null },
   });
 
-  // if in file client.ts useCdn is true its mean data will cached in CDN so used client.fetch
+  // if in file client.ts useCdn is true its mean data will cached in CDN so used client.fetch to revalidate data
   // const posts = await client.fetch(STARTUP_QUERY, {
   //   params: { search: query || null },
   // });
 
   const session = await auth();
 
-  console.log({ session, sessionId: session?.user?.id, posts }, "<---dihomepage");
+  console.log({ session, sessionId: session?.id }, "<---dihomepage");
 
   return (
     <>

@@ -26,7 +26,7 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
             <span className="text-sm">{post.author?.name}</span>
           </Link>
           <Link href={`/startup/${post._id}`}>
-            <h3 className="text-2xl font-bold">{post.title}</h3>
+            <h3 className="text-2xl font-bold line-clamp-1">{post.title}</h3>
           </Link>
         </div>
         <Link href={`/user/${post.author?._id}`}>{post.author?.image && <Image src={post.author.image} alt="Avatar" width={50} height={50} className="rounded-full object-cover" />}</Link>
