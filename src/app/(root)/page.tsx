@@ -8,7 +8,7 @@ import { STARTUP_QUERY } from "@/sanity/lib/queries";
 export default async function Home({ searchParams }: { searchParams: Promise<{ query?: string }> }) {
   const query = (await searchParams).query;
 
-  // if in file client.ts useCdn is false its mean data will not cached and will fetch from server and used sanityFetch to get data realtime
+  // if in file client.ts useCdn is false its mean data will not cached and will fetch from server and used sanityFetch to get data realtime without reload, if you used client.fetch you must reload page to get new data
   const { data: posts } = await sanityFetch({
     query: STARTUP_QUERY,
     params: { search: query || null },
