@@ -6,11 +6,12 @@ type HeroProps = {
   desc?: string;
   field?: boolean;
   query?: string;
+  height?: string;
 };
 
-const HeroSection = ({ tag, title, desc, field, query }: HeroProps) => {
+const HeroSection = ({ tag, title, desc, field, query, height }: HeroProps) => {
   return (
-    <section className="relative min-h-96 w-full max-w-[85rem] mx-auto mt-10 overflow-hidden border border-primary border-opacity-60 flex flex-col items-center justify-center rounded-lg">
+    <section className={`relative ${height ? height : "min-h-96"}  w-full max-w-[85rem] mx-auto mt-10 overflow-hidden border border-primary border-opacity-60 flex flex-col items-center justify-center rounded-lg`}>
       <div className="absolute inset-0 w-full h-full bg-primary opacity-5 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
 
       <div className="b-amber-500 relative z-20 flex flex-col items-center gap-6">

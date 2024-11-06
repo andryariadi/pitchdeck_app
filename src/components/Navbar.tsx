@@ -27,7 +27,11 @@ const Navbar = async () => {
                 <Button btn title="Logout" icon={AiOutlineLogout} />
               </form>
 
-              <Link href={`/user/${session.user.id}`}>{session.user.image && <Image src={session.user.image} width={35} height={35} alt="Avatar" className="rounded-full" />}</Link>
+              <div className="flex items-center gap-3">
+                <span className="text-sm font-semibold bg-gradient-to-r from-primary to-violet-500 text-transparent bg-clip-text">{session.user.name}</span>
+
+                <Link href={`/user/${session.user.id}`}>{session.user.image && <Image src={session.user.image} width={35} height={35} alt="Avatar" className="rounded-full" />}</Link>
+              </div>
             </>
           ) : (
             <form action={handleGithubLogin} className="b-green-500">
