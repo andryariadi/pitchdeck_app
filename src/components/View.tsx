@@ -25,7 +25,7 @@ const View = async ({ id }: { id: string }) => {
       <div className="text-gray-300 font-medium text-[16px] bg-gradient-to-r from-primary to-violet-500 px-4 py-2 rounded-lg capitalize">
         <div className="flex items-center gap-2">
           <VscEye size={22} />
-          <span>{totalViews}</span>
+          <span>{totalViews ?? 0}</span>
         </div>
       </div>
     </div>

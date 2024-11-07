@@ -13,7 +13,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   ],
   callbacks: {
     async signIn({ user, profile }) {
-      console.log({ user, profile }, "<----disignIn");
+      // console.log({ user, profile }, "<----disignIn");
 
       const existingUser = await client.withConfig({ useCdn: false }).fetch(AUTHOR_BY_GITHUB_ID_QUERY, {
         id: profile?.id,
@@ -33,8 +33,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
       return true;
     },
-    async jwt({ token, user, account, profile }) {
-      console.log({ token, user, account, profile }, "<----dijwtAuth");
+    async jwt({ token, account, profile }) {
+      // console.log({ token, user, account, profile }, "<----dijwtAuth");
 
       if (account && profile) {
         const user = await client.withConfig({ useCdn: false }).fetch(AUTHOR_BY_GITHUB_ID_QUERY, {
@@ -47,7 +47,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       return token;
     },
     async session({ session, token }) {
-      console.log({ session, token }, "<----disessionAuth");
+      // console.log({ session, token }, "<----disessionAuth");
 
       Object.assign(session, {
         id: token?.id,

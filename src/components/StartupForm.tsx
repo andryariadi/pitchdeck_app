@@ -11,8 +11,13 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { startupSchema } from "@/libs/validators";
 import { z } from "zod";
+import { createPitch } from "@/libs/actions";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import { toastStyle } from "@/libs/utils";
 
 const StartupForm = () => {
+  const router = useRouter();
   const [pitch, setPitch] = useState("");
 
   const {
@@ -24,23 +29,37 @@ const StartupForm = () => {
     resolver: zodResolver(startupSchema),
   });
 
-  // const dataTitle = register("title");
-  // const dataCategory = register("category");
-  // const dataImage = register("image");
-
   const handlePitchChange = (pitch?: string) => {
-    setValue("pitch", pitch ?? ""); // Fallback to empty string if pitch is undefined
+    setValue("pitch", pitch ?? "");
     setPitch(pitch ?? "");
   };
 
   const handleSubmitStartup: SubmitHandler<z.infer<typeof startupSchema>> = async (data) => {
     console.log(data, "<----dihandleSubmitStartup");
+
+    const res = await createPitch(data);
+
+    console.log(res, "<----dihandleSubmitStartup");
+
+    if (res?.success) {
+      toast.success(res.message, {
+        style: toastStyle,
+      });
+
+      router.push(`/startup/${res.newPitch._id}`);
+    }
+
+    if (res?.error) {
+      toast.error(res.error, {
+        style: toastStyle,
+      });
+    }
   };
 
   console.log(pitch, "<----dipitch");
 
   return (
-    <form onSubmit={handleSubmit(handleSubmitStartup)} className="bg-emerald-500 grid grid-cols-2 gap-10">
+    <form onSubmit={handleSubmit(handleSubmitStartup)} className="b-emerald-500 grid grid-cols-2 gap-10">
       <div className="relative">
         <InputField type="text" name="title" placeholder="Startup Title" icon={<FaBarsStaggered />} propData={{ ...register("title") }} />
 
