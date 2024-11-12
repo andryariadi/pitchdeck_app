@@ -71,8 +71,10 @@ const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
           </div>
 
           {/* Post information */}
-          <div className="b-green-600 space-y-3 pb-7 border-b border-gray-400">
-            <h3 className="text-[30px] font-bold bg-gradient-to-r from-primary to-violet-500 text-transparent bg-clip-text w-max">Pitch Details</h3>
+          <div className="b-green-600 space-y-7 pb-7 border-b border-gray-400">
+            <div className="bg-gradient-to-r from-primary to-violet-500 px-5 py-3 rounded-lg max-w-fit">
+              <h3 className="uppercase text-gray-300 font-bold">Pitch Details</h3>
+            </div>
 
             {parsedContent ? (
               <article dangerouslySetInnerHTML={{ __html: parsedContent }} className="prose max-w-4xl font-work-sans break-all text-gray-200" />
@@ -82,10 +84,12 @@ const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
           </div>
 
           {/* Editor */}
-          <div className="b-violet-500 w-full max-w-4xl mx-auto space-y-5 pb-10">
+          <div className="b-violet-500 w-full max-w-4xl mx-auto space-y-7 pb-10">
             {editorPosts?.length > 0 && (
               <>
-                <h3 className="text-[30px] font-bold bg-gradient-to-r from-primary to-violet-500 text-transparent bg-clip-text w-max">Editor Picks</h3>
+                <div className="bg-gradient-to-r from-primary to-violet-500 px-5 py-3 rounded-lg max-w-fit">
+                  <h3 className="uppercase text-gray-300 font-bold">Editor Picks</h3>
+                </div>
 
                 <ul className="grid sm:grid-cols-2 gap-y-20">
                   {editorPosts.map((post: StartupTypeCard, i: number) => (
