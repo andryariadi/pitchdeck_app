@@ -15,7 +15,7 @@ const Search = ({ query }: { query?: string }) => {
         outline-none border border-violet-500 focus:border-primary text-white placeholder:text-sm placeholder-gray-400 placeholder-opacity-50 transition-all duration-300`}
       />
 
-      <div className="absolute right-[4.5rem] flex items-center gap-2">
+      <div className="absolute right-[1rem] md:right-[4.5rem] flex items-center gap-2">
         {query && <SearchFormReset />}
 
         <button type="submit">

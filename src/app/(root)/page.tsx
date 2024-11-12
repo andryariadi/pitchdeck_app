@@ -27,14 +27,16 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
     <>
       <HeroSection tag="Pitch, Vote and Grow" title="Pitch Your Startup, Connect With Entepreneurs" desc="Submit Ideas, Vote on Pitches and Get Noticed in Virtual Competitions" field query={query} />
 
-      <section className="b-rose-600 w-full max-w-6xl mx-auto mt-10 space-y-5">
+      <section className="bg-rose-600 w-full max-w-6xl mx-auto px-3 md:px-0 mt-10 space-y-5">
         {/* Title */}
         <div className="bg-gradient-to-r from-primary to-violet-500 px-5 py-3 rounded-lg max-w-fit">
           <span className="uppercase text-gray-300 font-bold">{query ? `Search results for "${query}"` : "All Startups"}</span>
         </div>
 
         {/* Card */}
-        <div className="b-amber-500 grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-14">{posts?.length > 0 ? posts.map((post: StartupTypeCard) => <StartupCard post={post} key={post._id} />) : <p>No startups found</p>}</div>
+        <div className="bg-amber-500 grid grid-cols-1 md:grid-cols-3 place-items-center gap-y-10 md:gap-14">
+          {posts?.length > 0 ? posts.map((post: StartupTypeCard) => <StartupCard post={post} key={post._id} />) : <p>No startups found</p>}
+        </div>
       </section>
 
       {/* if in file client.ts useCdn is true its mean data will cached in CDN */}

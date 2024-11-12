@@ -21,7 +21,7 @@ const Navbar = async () => {
         </Link>
 
         {/* Navlink */}
-        <div className="b-sky-600 flex items-center gap-3 md:gap-5">
+        <div className="b-sky-600 flex items-center gap-5">
           {session && session.user ? (
             <>
               <Button btn={false} url="/startup/create" title="Create" icon={IoIosAddCircleOutline} />
