@@ -1,7 +1,7 @@
 import HeroSection from "@/components/HeroSection";
 import { formatDate } from "@/libs/utils";
 import { client } from "@/sanity/lib/client";
-import { STARTUP_BY_ID_QUERY } from "@/sanity/lib/queries";
+import { PLAYLIST_BY_SLUG_QUERY, STARTUP_BY_ID_QUERY } from "@/sanity/lib/queries";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -9,6 +9,7 @@ import markdownit from "markdown-it";
 import { Suspense } from "react";
 import View from "@/components/View";
 import { RiLoader2Line } from "react-icons/ri";
+import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
 
 export const experimental_ppr = true;
 
@@ -16,9 +17,16 @@ const md = markdownit();
 
 const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
-  const post = await client.fetch(STARTUP_BY_ID_QUERY, {
-    id: id,
-  });
+
+  // data fetching with pattern parallel data fetching
+  const [post, { select: editorPosts }] = await Promise.all([
+    client.fetch(STARTUP_BY_ID_QUERY, {
+      id: id,
+    }),
+    client.fetch(PLAYLIST_BY_SLUG_QUERY, {
+      slug: "marvel-universe",
+    }),
+  ]);
 
   const datePost = formatDate(post._createdAt);
 
@@ -26,7 +34,7 @@ const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
 
   const parsedContent = md.render(post?.pitch || "");
 
-  console.log(post, "<---dideatilpage");
+  console.log({ post, editorPosts }, "<---dideatilpage");
 
   return (
     <>
@@ -74,7 +82,19 @@ const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
           </div>
 
           {/* Editor */}
-          <div className="bg-violet-500 w-full max-w-4xl mx-auto">Editor</div>
+          <div className="b-violet-500 w-full max-w-4xl mx-auto space-y-5 pb-10">
+            {editorPosts?.length > 0 && (
+              <>
+                <h3 className="text-[30px] font-bold bg-gradient-to-r from-primary to-violet-500 text-transparent bg-clip-text w-max">Editor Picks</h3>
+
+                <ul className="grid sm:grid-cols-2 gap-y-20">
+                  {editorPosts.map((post: StartupTypeCard, i: number) => (
+                    <StartupCard key={i} post={post} />
+                  ))}
+                </ul>
+              </>
+            )}
+          </div>
         </div>
 
         {/* Views */}
