@@ -11,7 +11,7 @@ const CreatePage = async () => {
     <>
       <HeroSection title="Submit Your Startup Pitch" height="min-h-52" />
 
-      <section className="bg-green-600 w-full max-w-4xl mx-auto mt-10 space-y-5">
+      <section className="b-green-600 w-full max-w-4xl mx-auto mt-10 space-y-5">
         <StartupForm />
       </section>
     </>
