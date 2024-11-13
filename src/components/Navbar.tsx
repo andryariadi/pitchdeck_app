@@ -10,8 +10,6 @@ import Button from "./Button";
 const Navbar = async () => {
   const session = await auth();
 
-  console.log(session, "<---dinavbar");
-
   return (
     <header className="px-3 py-5 md:p-5 bg-transparent bg-opacity-90 backdrop-blur-md shadow-lg border-b border-primary border-opacity-60">
       <nav className="b-rose-600 md:px-10 flex items-center justify-between">

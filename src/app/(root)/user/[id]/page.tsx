@@ -19,8 +19,6 @@ const UserProfilePage = async ({ params }: { params: Promise<{ id: string }> }) 
 
   if (!user) return notFound();
 
-  console.log({ id, session, user }, "<----userProfilePage");
-
   return (
     <>
       <section className="b-rose-500 w-full max-w-7xl mx-auto mt-20 pb-10">

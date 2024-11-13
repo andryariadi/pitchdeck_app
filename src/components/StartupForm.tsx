@@ -56,8 +56,6 @@ const StartupForm = () => {
     }
   };
 
-  console.log(pitch, "<----dipitch");
-
   return (
     <form onSubmit={handleSubmit(handleSubmitStartup)} className="b-emerald-500 px-3 grid grid-cols-1 md:grid-cols-2 gap-10">
       <div className="b-rose-600 relative col-span-2 md:col-auto">

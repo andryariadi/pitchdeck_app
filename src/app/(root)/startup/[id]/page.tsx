@@ -34,8 +34,6 @@ const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
 
   const parsedContent = md.render(post?.pitch || "");
 
-  console.log({ post, editorPosts }, "<---dideatilpage");
-
   return (
     <>
       <HeroSection tag={datePost} title={post.title} desc={post.description} />

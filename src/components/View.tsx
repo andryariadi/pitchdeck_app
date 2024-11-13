@@ -15,7 +15,6 @@ const View = async ({ id }: { id: string }) => {
       .commit();
   });
 
-  console.log({ totalViews }, "<----views");
   return (
     <div className="bg-rose-600 fixed bottom-3 left-3 flex items-center justify-end">
       <div className="absolute -top-2 -right-2">
