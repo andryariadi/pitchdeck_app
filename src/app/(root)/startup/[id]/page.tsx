@@ -38,15 +38,15 @@ const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
     <>
       <HeroSection tag={datePost} title={post.title} desc={post.description} />
 
-      <section className="b-rose-600 w-full max-w-6xl mx-auto px-3 mt-10 space-y-10">
+      <section className="w-full max-w-6xl mx-auto px-3 mt-10 space-y-10">
         {/* Image section */}
-        <div className="b-violet-500 relative w-full h-[30rem]">
+        <div className="relative w-full h-[30rem]">
           <Image src={post.image} alt={post.title} fill className="object-cover rounded-lg" />
         </div>
         {/* Information */}
-        <div className="b-amber-500 w-full max-w-4xl mx-auto space-y-7">
+        <div className="w-full max-w-4xl mx-auto space-y-7">
           {/* User and category information */}
-          <div className="b-sky-500 flex items-center justify-between">
+          <div className="flex items-center justify-between">
             {/* User */}
             <div className="flex items-center gap-3">
               <Link href={`/user/${post.author?._id}`}>
@@ -68,7 +68,7 @@ const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
           </div>
 
           {/* Post information */}
-          <div className="b-green-600 space-y-7 pb-7 border-b border-gray-400">
+          <div className="space-y-7 pb-7 border-b border-gray-400">
             <div className="bg-gradient-to-r from-primary to-violet-500 px-5 py-3 rounded-lg max-w-fit">
               <h3 className="uppercase text-gray-300 font-bold">Pitch Details</h3>
             </div>
@@ -81,7 +81,7 @@ const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
           </div>
 
           {/* Editor */}
-          <div className="b-violet-500 w-full max-w-4xl mx-auto space-y-7 pb-10">
+          <div className="w-full max-w-4xl mx-auto space-y-7 pb-10">
             {editorPosts?.length > 0 && (
               <>
                 <div className="bg-gradient-to-r from-primary to-violet-500 px-5 py-3 rounded-lg max-w-fit">
@@ -100,7 +100,7 @@ const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
 
         {/* Views */}
         {/* in PPR page if you want to get dynamic data then use Suspense */}
-        <Suspense fallback={<RiLoader2Line className="animate-spin bg-emerald-800" />}>
+        <Suspense fallback={<RiLoader2Line className="animate-spin" />}>
           <View id={id} />
         </Suspense>
       </section>

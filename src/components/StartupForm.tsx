@@ -57,20 +57,20 @@ const StartupForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleSubmitStartup)} className="b-emerald-500 px-3 grid grid-cols-1 md:grid-cols-2 gap-10">
-      <div className="b-rose-600 relative col-span-2 md:col-auto">
+    <form onSubmit={handleSubmit(handleSubmitStartup)} className="px-3 grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div className="relative col-span-2 md:col-auto">
         <InputField type="text" name="title" placeholder="Startup Title" icon={<FaBarsStaggered />} propData={{ ...register("title") }} />
 
         {errors.title && <p className="absolute -bottom-5 text-red-500 text-sm">{errors.title.message as string}</p>}
       </div>
 
-      <div className="b-rose-600 relative col-span-2 md:col-auto">
+      <div className="relative col-span-2 md:col-auto">
         <InputField type="text" name="category" placeholder="Choose a category (e.g., Tech, Ecommerce, Studio, Education, etc.)" icon={<BiCategoryAlt size={22} />} propData={{ ...register("category") }} />
 
         {errors.category && <p className="absolute -bottom-5 text-red-500 text-sm">{errors.category.message as string}</p>}
       </div>
 
-      <div className="b-rose-600 relative col-span-2 md:col-auto">
+      <div className="relative col-span-2 md:col-auto">
         <textarea
           id="description"
           rows={1}
@@ -83,13 +83,13 @@ const StartupForm = () => {
         {errors.description && <p className="absolute -bottom-5 text-red-500 text-sm">{errors.description.message as string}</p>}
       </div>
 
-      <div className="b-rose-600 relative col-span-2 md:col-auto">
+      <div className="relative col-span-2 md:col-auto">
         <InputField type="text" name="image" placeholder="Image Url" icon={<IoIosLink size={22} />} propData={{ ...register("image") }} />
 
         {errors.image && <p className="absolute -bottom-5 text-red-500 text-sm">{errors.image.message as string}</p>}
       </div>
 
-      <div className="b-rose-600 relative col-span-2">
+      <div className="relative col-span-2">
         <MDEditor
           value={pitch}
           onChange={handlePitchChange}

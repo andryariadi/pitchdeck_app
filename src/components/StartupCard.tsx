@@ -9,7 +9,7 @@ export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author };
 
 const StartupCard = ({ post }: { post: StartupTypeCard }) => {
   return (
-    <article className="card b-amber-500 relative text-[#eee] w-[350px] flex-shrink-0" data-view={post.views}>
+    <article className="card relative text-[#eee] w-[350px] flex-shrink-0" data-view={post.views}>
       <FaRegEye size={20} className="text-violet-500 absolute z-20 top-5 right-6" />
 
       <div className="author bg-secondary w-[71%] h-[5rem] flex justify-center items-center gap-[20px] p-[10px] rounded-t-[35px]">

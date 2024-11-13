@@ -5,7 +5,7 @@ import SearchFormReset from "./SearchFormReset";
 
 const Search = ({ query }: { query?: string }) => {
   return (
-    <Form action="/" scroll={false} className="b-amber-500 group relative search w-full flex items-center justify-center">
+    <Form action="/" scroll={false} className="group relative search w-full flex items-center justify-center">
       <input
         type="text"
         placeholder="Search Startup..."

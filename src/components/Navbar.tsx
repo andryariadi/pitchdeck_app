@@ -12,14 +12,14 @@ const Navbar = async () => {
 
   return (
     <header className="px-3 py-5 md:p-5 bg-transparent bg-opacity-90 backdrop-blur-md shadow-lg border-b border-primary border-opacity-60">
-      <nav className="b-rose-600 md:px-10 flex items-center justify-between">
+      <nav className="md:px-10 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="b-green-700 hover:scale-105 transition-all duration-300">
+        <Link href="/" className="hover:scale-105 transition-all duration-300">
           <Image src="/logo.svg" width={200} height={200} alt="Pitchdeck" />
         </Link>
 
         {/* Navlink */}
-        <div className="b-sky-600 flex items-center gap-5">
+        <div className="flex items-center gap-5">
           {session && session.user ? (
             <>
               <Button btn={false} url="/startup/create" title="Create" icon={IoIosAddCircleOutline} />
@@ -35,7 +35,7 @@ const Navbar = async () => {
               </div>
             </>
           ) : (
-            <form action={handleGithubLogin} className="b-green-500">
+            <form action={handleGithubLogin}>
               <Button btn title="Login" icon={ImGithub} />
             </form>
           )}
