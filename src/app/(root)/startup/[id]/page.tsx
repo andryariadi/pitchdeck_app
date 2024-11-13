@@ -39,7 +39,8 @@ const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   return (
     <>
       <HeroSection tag={datePost} title={post.title} desc={post.description} />
-      <section className="b-rose-600 w-full max-w-6xl mx-auto mt-10 space-y-10">
+
+      <section className="b-rose-600 w-full max-w-6xl mx-auto px-3 mt-10 space-y-10">
         {/* Image section */}
         <div className="b-violet-500 relative w-full h-[30rem]">
           <Image src={post.image} alt={post.title} fill className="object-cover rounded-lg" />
@@ -55,16 +56,14 @@ const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
               </Link>
 
               <div className="flex flex-col text-primary">
-                <span className="font-bold text-[20px]">
-                  {post.author?.name} - {post.title}
-                </span>
-                <span className="font-medium text-[16px] text-gray-400">{post.author?.email}</span>
+                <span className="font-bold md:text-[20px]">{post.author?.name}</span>
+                <span className="font-medium md:text-[16px] text-gray-400">{post.author?.email}</span>
               </div>
             </div>
 
             {/* Category */}
-            <div className="bg-gradient-to-r from-primary to-violet-500 w-[10rem] h-[3rem] flex items-center justify-center rounded-full">
-              <div className="bg-tertiary w-[97%] h-[90%] flex items-center justify-center rounded-full">
+            <div className="bg-gradient-to-r from-primary to-violet-500 w-[5rem] md:w-[10rem] h-[3rem] flex items-center justify-center rounded-full">
+              <div className="bg-tertiary w-[95%] md:w-[97%] h-[90%] flex items-center justify-center rounded-full">
                 <p className="text-sm font-bold bg-gradient-to-r from-primary to-violet-500 text-transparent bg-clip-text">{post.category}</p>
               </div>
             </div>
@@ -77,7 +76,7 @@ const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
             </div>
 
             {parsedContent ? (
-              <article dangerouslySetInnerHTML={{ __html: parsedContent }} className="prose max-w-4xl font-work-sans break-all text-gray-200" />
+              <article dangerouslySetInnerHTML={{ __html: parsedContent }} className="prose max-w-4xl font-work-sans break-all text-gray-200 text-xs md:text-base" />
             ) : (
               <p className="text-gray-400 text-sm text-pretty bg-violet-500">No detail provided!</p>
             )}
@@ -91,7 +90,7 @@ const DetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
                   <h3 className="uppercase text-gray-300 font-bold">Editor Picks</h3>
                 </div>
 
-                <ul className="grid sm:grid-cols-2 gap-y-20">
+                <ul className="grid sm:grid-cols-2 gap-y-20 place-items-center md:place-items-start">
                   {editorPosts.map((post: StartupTypeCard, i: number) => (
                     <StartupCard key={i} post={post} />
                   ))}

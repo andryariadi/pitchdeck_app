@@ -14,7 +14,7 @@ type InputFieldProps = {
 
 const InputField = ({ isSearch, icon, passIcon, openPass, setOpenPass, type, propData, ...props }: InputFieldProps) => {
   return (
-    <div className={`group relative ${isSearch ? "max-w-2xl w-full" : ""}`}>
+    <div className={`group relative ${isSearch ? "max-w-2xl w-full" : "w-full"}`}>
       {/* Left icon */}
       <div className="absolute inset-y-0 left-0 px-3 flex items-center pointer-events-none text-violet-500 group-hover:scale-110 group-hover:text-primary transition-all duration-300">{icon}</div>
 

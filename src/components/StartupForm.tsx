@@ -59,20 +59,20 @@ const StartupForm = () => {
   console.log(pitch, "<----dipitch");
 
   return (
-    <form onSubmit={handleSubmit(handleSubmitStartup)} className="b-emerald-500 grid grid-cols-2 gap-10">
-      <div className="relative">
+    <form onSubmit={handleSubmit(handleSubmitStartup)} className="bg-emerald-500 px-3 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-10">
+      <div className="bg-rose-600 relative flex flex-1">
         <InputField type="text" name="title" placeholder="Startup Title" icon={<FaBarsStaggered />} propData={{ ...register("title") }} />
 
         {errors.title && <p className="absolute -bottom-5 text-red-500 text-sm">{errors.title.message as string}</p>}
       </div>
 
-      <div className="relative">
+      <div className="bg-rose-600 relative">
         <InputField type="text" name="category" placeholder="Choose a category (e.g., Tech, Ecommerce, Studio, Education, etc.)" icon={<BiCategoryAlt size={22} />} propData={{ ...register("category") }} />
 
         {errors.category && <p className="absolute -bottom-5 text-red-500 text-sm">{errors.category.message as string}</p>}
       </div>
 
-      <div className="relative">
+      <div className="bg-rose-600 relative">
         <textarea
           id="description"
           rows={1}
@@ -85,13 +85,13 @@ const StartupForm = () => {
         {errors.description && <p className="absolute -bottom-5 text-red-500 text-sm">{errors.description.message as string}</p>}
       </div>
 
-      <div className="relative">
+      <div className="bg-rose-600 relative">
         <InputField type="text" name="image" placeholder="Image Url" icon={<IoIosLink size={22} />} propData={{ ...register("image") }} />
 
         {errors.image && <p className="absolute -bottom-5 text-red-500 text-sm">{errors.image.message as string}</p>}
       </div>
 
-      <div className="relative col-span-2">
+      <div className="bg-rose-600 relative col-span-2">
         <MDEditor
           value={pitch}
           onChange={handlePitchChange}

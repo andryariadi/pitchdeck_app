@@ -17,15 +17,15 @@ const HeroSection = ({ tag, title, desc, field, query, height }: HeroProps) => {
       <div className="b-amber-500 relative z-20 flex flex-col items-center gap-6">
         {tag && (
           <div className="bg-gradient-to-r from-primary to-violet-500 px-5 py-3 rounded-md">
-            <span className="uppercase text-sm text-gray-300 font-bold">{tag}</span>
+            <span className="uppercase text-sm md:text-lg text-gray-300 font-bold">{tag}</span>
           </div>
         )}
 
         <div className="b-amber-500 w-full max-w-[48.5rem]">
-          <h1 className="text-xl md:text-5xl uppercase font-bold text-center bg-gradient-to-r from-primary to-violet-500 text-transparent bg-clip-text">{title}</h1>
+          <h1 className="text-xl md:text-4xl lg:text-5xl uppercase font-bold text-center bg-gradient-to-r from-primary to-violet-500 text-transparent bg-clip-text">{title}</h1>
         </div>
 
-        {desc && <p className="w-full max-w-xl text-sm text-center text-gray-300 line-clamp-2 b-amber-500">{desc}</p>}
+        {desc && <p className="w-full max-w-xl text-sm md:text-lg text-center text-gray-300 line-clamp-2 b-amber-500">{desc}</p>}
 
         {field && <Search query={query} />}
       </div>
